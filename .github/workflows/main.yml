@@ -17,10 +17,16 @@ jobs:
         run: |
           mkdir ./pdf
           cp *.pdf ./pdf
-      - name: deploy to gh-pages
+      - name: deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
           folder: ./pdf
           target-folder: pdfOut
+      - name: deploy inside main branch
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+          with:
+            branch: main
+            folder: pdf
+            target-folder: pdf
   
