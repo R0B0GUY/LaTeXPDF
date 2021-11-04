@@ -15,13 +15,12 @@ jobs:
           glob_root_file: true
       - name: clean extra stuff before deploy
         run: |
-          mkdir ./pdf
           cp *.pdf ./pdf
       - name: deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
-          folder: ./pdf
+          folder: pdf
           target-folder: pdfOut
       - name: deploy inside main branch
         uses: JamesIves/github-pages-deploy-action@4.1.5
