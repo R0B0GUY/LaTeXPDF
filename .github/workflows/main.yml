@@ -13,9 +13,14 @@ jobs:
         with:
           root_file: "./tex/*.tex"
           glob_root_file: true
+      - name: clean extra stuff before deploy
+        run: |
+          mkdir ./pdf
+          cp "*.pdf" ./pdf
       - name: deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
-          folder: .
+          folder: ./pdf
+          target-folder: pdfOut
   
